@@ -171,8 +171,3 @@ bigcodebench/_version.py
 *.jsonl
 inspect/
 *.zip
-
-
-# custome files
-execution_coverage_analysis.md
-function_call_layers.md
