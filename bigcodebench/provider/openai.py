@@ -39,7 +39,7 @@ class OpenAIChatDecoder(DecoderBase):
         )
         
         # Helper function to process a single message with its index
-        def process_message(index, message):
+        def process_message(message):
             ret = make_auto_request(
                 client,
                 message=message,
