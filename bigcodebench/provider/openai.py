@@ -58,24 +58,6 @@ class OpenAIChatDecoder(DecoderBase):
         all_outputs = concurrent_map(messages, process_message)
         
         return all_outputs
-        
-        # Original sequential implementation (commented out)
-        # all_outputs = []
-        # for message in tqdm(messages):
-        #     ret = make_auto_request(
-        #         client,
-        #         message=message,
-        #         model=self.name,
-        #         max_tokens=self.max_new_tokens,
-        #         temperature=self.temperature,
-        #         reasoning_effort=self.reasoning_effort,
-        #         n=num_samples,
-        #     )
-        #     outputs = []
-        #     for item in ret.choices:
-        #         outputs.append(item.message.content)
-        #     all_outputs.append(outputs)
-        # return all_outputs
 
     def _codegen_batch_via_concurrency(self, messages: List[str], num_samples: int) -> List[str]:
         batches = concurrent_call(
